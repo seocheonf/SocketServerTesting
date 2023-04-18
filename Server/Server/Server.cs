@@ -79,7 +79,12 @@ namespace Server
         void AcceptTcpClient(IAsyncResult IAR)
         {
             TcpListener listener = (TcpListener)IAR.AsyncState;
-            clients.Add(new ServerClient(listener.EndAcceptTcpClient(IAR), client_number));
+            ServerClient client = new ServerClient(listener.EndAcceptTcpClient(IAR), client_number);
+            clients.Add(client);
+
+            IPEndPoint IP_PORT = (IPEndPoint)client.tcp.Client.LocalEndPoint;
+            Console.WriteLine($"Connection : IP : {0} / PORT : {1} / clientName : {2}", IP_PORT.Address, IP_PORT.Port, client.clientName);
+
             client_number++;
             StartListening();
         }
