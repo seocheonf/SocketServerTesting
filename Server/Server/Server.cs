@@ -26,6 +26,9 @@ namespace Server
 
         int client_number = 0;
 
+        char[] splitdata = { ':' };
+
+
         public void Start()
         {
             Task END = new Task(THE_END);
@@ -83,7 +86,7 @@ namespace Server
             clients.Add(client);
 
             IPEndPoint IP_PORT = (IPEndPoint)client.tcp.Client.LocalEndPoint;
-            Console.WriteLine($"Connection : IP : {0} / PORT : {1} / clientName : {2}", IP_PORT.Address, IP_PORT.Port, client.clientName);
+            Console.WriteLine($"Connection : IP : {IP_PORT.Address} / PORT : {IP_PORT.Port} / clientName : {client.clientName}");
 
             client_number++;
             StartListening();
@@ -94,8 +97,9 @@ namespace Server
             Console.WriteLine("Update() : Start");
             while (serverStarted && !serverEnd)
             {
-                foreach (ServerClient c in clients)
+                for(int i = 0; i < clients.Count; i++)
                 {
+                    ServerClient c = clients[i];
                     if (!IsConnected(c.tcp))
                     {
                         c.tcp.Close();
@@ -107,14 +111,22 @@ namespace Server
                         NetworkStream s = c.tcp.GetStream();
                         if(s.DataAvailable)
                         {
-                            string type = new StreamReader(s, true).ReadLine();
-                            string data = new StreamReader(s, true).ReadLine();
+                            string all_data = new StreamReader(s, true).ReadLine();
+                            string[] split_data = SplitData(all_data);
+
+                            string type = split_data[0];
+                            string data = split_data[1];
                             if(data != null)
                             {
                                 OnIncomingData(c, type, data);
                             }
                         }
                     }
+                }
+                for(int i = 0; i< disconnectList.Count; i++)
+                {
+                    clients.Remove(disconnectList[i]);
+                    disconnectList.RemoveAt(i);
                 }
             }
         }
@@ -194,7 +206,12 @@ namespace Server
         
         string SendTypeData(string type)
         {
-            return type + "\n";
+            return type + ":";
+        }
+
+        string[] SplitData(string data)
+        {
+            return data.Split(splitdata, 2);
         }
     }
 
