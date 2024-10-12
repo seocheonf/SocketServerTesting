@@ -12,3 +12,10 @@ C:\Users\kaowl\Desktop\5minute_dungeon\SocketServerTesting\Server\Server\obj\Deb
 C:\Users\kaowl\Desktop\5minute_dungeon\SocketServerTesting\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
 C:\Users\kaowl\Desktop\5minute_dungeon\SocketServerTesting\Server\Server\obj\Debug\Server.exe
 C:\Users\kaowl\Desktop\5minute_dungeon\SocketServerTesting\Server\Server\obj\Debug\Server.pdb
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\bin\Debug\Server.exe.config
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\bin\Debug\Server.exe
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\bin\Debug\Server.pdb
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\obj\Debug\Server.exe
+C:\Users\Administrator\Desktop\serverT\SocketServerTesting-main\SocketServerTesting-main\Server\Server\obj\Debug\Server.pdb

@@ -157,6 +157,7 @@ namespace Server
         {
             if(type.Equals("Text"))
             {
+                Console.WriteLine(data);
                 Broadcast(c, type, data, clients);
             }
             else
